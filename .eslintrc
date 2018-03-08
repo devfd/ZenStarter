@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "plugins": [
+    "react-native"
+  ],
+  "globals": {
+    "__DEV__": true,
+    "idx": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": "off",
+    "react-native/no-unused-styles": "error",
+    "react-native/split-platform-components": "off"
+  }
+}
