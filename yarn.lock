@@ -4232,6 +4232,10 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-config@^0.11.5:
+  version "0.11.5"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.5.tgz#516cb7b6ec437c7739236ca075971db3aabdcb95"
+
 react-native-device-screen-switcher@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-native-device-screen-switcher/-/react-native-device-screen-switcher-0.1.0.tgz#78114e9b9bcf2bd958e564b2aaa09e58f16f9866"

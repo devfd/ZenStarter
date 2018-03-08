@@ -1,0 +1,13 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/primary_dark"/>
+    <item>
+        <bitmap
+            android:src="@drawable/launch_screen"
+            android:gravity="center"/>
+    </item>
+</layer-list>

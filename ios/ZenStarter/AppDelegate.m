@@ -13,6 +13,7 @@
 #import <React/RCTRootView.h>
 
 #import "SplashScreen.h"
+#import "ReactNativeConfig.h"
 
 @implementation AppDelegate
 
