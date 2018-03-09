@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new ReactNativeConfigPackage(),
-          new SplashScreenReactPackage()
+          new SplashScreenReactPackage(),
+          new RNI18nPackage()
       );
     }
 

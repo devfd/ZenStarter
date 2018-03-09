@@ -1,10 +1,22 @@
 apply plugin: "com.android.application"
 
+/**
+ * Multi-env setup
+**/
 project.ext.envConfigFiles = [
     productionrelease: ".env.production",
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+/**
+ * Icons
+**/
+project.ext.vectoricons = [
+    iconFontNames: ['Ionicons.ttf', 'FontAwesome.ttf']
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 import com.android.build.OutputFile
 
@@ -175,9 +187,18 @@ android {
 
 dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:26.1.0"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.android.support:appcompat-v7:26.1.0"
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    compile project(':react-native-splash-screen')
-    compile project(':react-native-config')
+    implementation(project(':react-native-splash-screen')) {
+        exclude group: 'com.facebook.react', module: 'react-native'
+    }
+
+    implementation(project(':react-native-config')) {
+        exclude group: 'com.facebook.react', module: 'react-native'
+    }
+
+    implementation(project(':react-native-i18n')) {
+        exclude group: 'com.facebook.react', module: 'react-native'
+    }
 }
