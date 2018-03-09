@@ -1,5 +1,11 @@
 apply plugin: "com.android.application"
 
+project.ext.envConfigFiles = [
+    productionrelease: ".env.production",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -78,6 +84,16 @@ project.ext.react = [
 
 apply from: "../../node_modules/react-native/react.gradle"
 
+// helper to transform build version (1.2.4) to version code (1020400)
+// require for playstore submission
+ext {
+    buildVersionCode = { versionName ->
+        def (major, minor, patch) = versionName.toLowerCase().replaceAll('-', '').tokenize('.')
+        (major, minor, patch) = [major, minor, patch].collect{it.toInteger()}
+        (major * 1000000) + (minor * 10000) + (patch * 100);
+    }
+}
+
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -91,21 +107,31 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "com.zenstarter"
+        applicationId project.env.get("APP_ID")
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionName project.env.get("APP_VERSION")
+        versionCode buildVersionCode(versionName)
+        resValue "string", "build_config_package", "com.zenstarter"
+        archivesBaseName = "zenstarter-$versionName"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+
+    flavorDimensions "zenstarter"
+    productFlavors {
+        nightly { }
+        production { }
+    }
+
     splits {
         abi {
             reset()
@@ -114,12 +140,24 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+
+    signingConfigs {
+        release {
+            storeFile file(System.getenv('ANDROID_KEYSTORE') ?: "/dev/null")
+            storePassword System.getenv('ANDROID_KEYSTORE_PWD') ?: "pwd"
+            keyAlias System.getenv('ANDROID_KEY_ALIAS') ?: "alias"
+            keyPassword System.getenv('ANDROID_KEY_PWD') ?: "pwd"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -137,7 +175,7 @@ android {
 
 dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:25.4.0"
+    compile "com.android.support:appcompat-v7:26.1.0"
     compile "com.facebook.react:react-native:+"  // From node_modules
 
     compile project(':react-native-splash-screen')

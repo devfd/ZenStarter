@@ -68,3 +68,6 @@
 -dontwarn java.nio.file.*
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
+
+# react-native-config
+-keep class com.zenstarter.BuildConfig { *; }

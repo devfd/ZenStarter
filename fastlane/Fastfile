@@ -1,0 +1,46 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.39.1"
+
+default_platform :ios
+
+platform :ios do
+end
+
+platform :android do
+  desc "ZenStarter staging version"
+  lane :staging do
+    gradle(
+      task: "assemble",
+      project_dir: "android",
+      build_type: "Release",
+      print_command: true,
+    )
+  end
+
+  desc "ZenStarter PlayStore version"
+  lane :production do
+    gradle(
+      task: "assemble",
+      flavor: "Production",
+      build_type: "Release",
+      project_dir: "android",
+      print_command: true,
+    )
+  end
+
+  desc "ZenStarter PlayStore deployment"
+  lane :playstore do
+    supply(
+      package_name: ENV["APP_ID"],
+      track: 'beta',
+      json_key: ENV["ANDROID_PLAYSTORE_KEY"],
+      apk: "build/passenger-#{ENV["APP_VERSION"]}-prod-release.apk",
+    )
+  end
+end
