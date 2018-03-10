@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { connect } from 'react-redux';
 import { select } from '@rematch/select';
@@ -24,13 +20,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 30,
   },
-
 });
 
 class ProfileScreen extends React.Component {
   signOut = () => {
     this.props.signOut();
-  }
+  };
 
   render() {
     return (
@@ -40,11 +35,7 @@ class ProfileScreen extends React.Component {
         <Text style={styles.welcome}>Hello {this.props.userName}</Text>
 
         <View style={{ marginTop: 0 }}>
-
-          <ActionButton
-            onPress={this.signOut}
-            text="Signout now"
-          />
+          <ActionButton onPress={this.signOut} text="Signout now" />
         </View>
       </View>
     );

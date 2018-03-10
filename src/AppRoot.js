@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { select } from '@rematch/select';
+import SplashScreen from 'react-native-splash-screen';
 
 import AuthScreen from 'screens/AuthScreen';
 import HomeNavigator from 'screens/Home/Navigator';
@@ -9,6 +10,12 @@ import HomeNavigator from 'screens/Home/Navigator';
 class AppRoot extends React.Component {
   componentDidMount() {
     this.props.startApp();
+  }
+
+  componentDidUpdate() {
+    if (!this.props.isLoading) {
+      SplashScreen.hide();
+    }
   }
 
   render() {

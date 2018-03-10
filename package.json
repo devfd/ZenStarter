@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint src",
+    "lint": "eslint src --fix",
     "test": "jest",
     "run-android": "react-native run-android --variant NightlyDebug",
     "log-android": "react-native log-android",

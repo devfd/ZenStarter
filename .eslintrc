@@ -4,17 +4,13 @@
     "jest": true,
     "node": true
   },
-  "extends": [
-    "airbnb"
-  ],
+  "extends": ["airbnb"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
     }
   },
-  "plugins": [
-    "react-native"
-  ],
+  "plugins": ["react-native"],
   "globals": {
     "__DEV__": true,
     "idx": true

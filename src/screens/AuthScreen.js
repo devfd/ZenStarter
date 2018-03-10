@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import I18n from 'react-native-i18n';
 
@@ -35,10 +30,7 @@ const AuthScreen = () => (
     <View style={{ marginTop: 50 }}>
       <Text>Zen Starter</Text>
       <Text>Minimalist production-ready demo project.</Text>
-      <ActionButton
-        text={I18n.t('auth.signin')}
-        onPress={() => dispatch.app.signIn()}
-      />
+      <ActionButton text={I18n.t('auth.signin')} onPress={() => dispatch.app.signIn()} />
     </View>
   </View>
 );

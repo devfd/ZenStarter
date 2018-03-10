@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 import { elevation } from 'theme/Utils';
 import Colors from 'theme/Colors';
@@ -37,10 +32,7 @@ const styles = StyleSheet.create({
 const ActionButton = ({
   onPress, text, image, backgroundColor,
 }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={[styles.cta, { backgroundColor }]}
-  >
+  <TouchableOpacity onPress={onPress} style={[styles.cta, { backgroundColor }]}>
     <Text style={styles.text}>{text}</Text>
     {image && <Image source={image} style={styles.image} />}
   </TouchableOpacity>
