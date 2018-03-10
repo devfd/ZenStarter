@@ -3,10 +3,6 @@ apply plugin: "com.android.application"
 /**
  * Multi-env setup
 **/
-project.ext.envConfigFiles = [
-    productionrelease: ".env.production",
-]
-
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
@@ -97,7 +93,7 @@ project.ext.react = [
 apply from: "../../node_modules/react-native/react.gradle"
 
 // helper to transform build version (1.2.4) to version code (1020400)
-// require for playstore submission
+// required for playstore submission
 ext {
     buildVersionCode = { versionName ->
         def (major, minor, patch) = versionName.toLowerCase().replaceAll('-', '').tokenize('.')
