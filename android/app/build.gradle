@@ -186,10 +186,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:26.1.0"
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    implementation(project(':react-native-splash-screen')) {
-        exclude group: 'com.facebook.react', module: 'react-native'
-    }
-
     implementation(project(':react-native-config')) {
         exclude group: 'com.facebook.react', module: 'react-native'
     }

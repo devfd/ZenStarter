@@ -2,27 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { select } from '@rematch/select';
-import SplashScreen from 'react-native-splash-screen';
+import { ImageBackground, Platform } from 'react-native';
 
 import AuthScreen from 'screens/AuthScreen';
 import HomeNavigator from 'screens/Home/Navigator';
+
+import SplashImage from 'images/splash.png';
+
+const Splash = () =>
+  (Platform.OS === 'ios' ? <ImageBackground style={{ flex: 1 }} source={SplashImage} /> : null);
 
 class AppRoot extends React.Component {
   componentDidMount() {
     this.props.startApp();
   }
 
-  componentDidUpdate() {
-    if (!this.props.isLoading) {
-      SplashScreen.hide();
-    }
-  }
-
   render() {
     const { isLoading, user } = this.props;
 
     if (isLoading) {
-      return null;
+      return <Splash />;
     }
 
     if (!user) {
