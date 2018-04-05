@@ -29,7 +29,7 @@ export default {
       }
 
       const user = JSON.parse(rawUser);
-      await new Promise((resolve) => {
+      await new Promise(resolve => {
         setTimeout(resolve, 3000);
       });
       return this.didFinishLoading({ user });

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -41,6 +41,11 @@ class ProfileScreen extends React.Component {
     );
   }
 }
+
+ProfileScreen.propTypes = {
+  signOut: PropTypes.func.isRequired,
+  userName: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = state => ({
   userName: select.app.userName(state),

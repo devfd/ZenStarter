@@ -23,6 +23,7 @@ export default TabNavigator(
       },
     },
     navigationOptions: ({ navigation }) => ({
+      // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;

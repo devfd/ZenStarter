@@ -10,7 +10,9 @@ import HomeNavigator from 'screens/Home/Navigator';
 import SplashImage from 'images/splash.png';
 
 const Splash = () =>
-  (Platform.OS === 'ios' ? <ImageBackground style={{ flex: 1 }} source={SplashImage} /> : null);
+  Platform.OS === 'ios' ? (
+    <ImageBackground style={{ flex: 1 }} source={SplashImage} />
+  ) : null;
 
 class AppRoot extends React.Component {
   componentDidMount() {

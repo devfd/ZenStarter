@@ -30,7 +30,10 @@ const AuthScreen = () => (
     <View style={{ marginTop: 50 }}>
       <Text>Zen Starter</Text>
       <Text>Minimalist production-ready demo project.</Text>
-      <ActionButton text={I18n.t('auth.signin')} onPress={() => dispatch.app.signIn()} />
+      <ActionButton
+        text={I18n.t('auth.signin')}
+        onPress={() => dispatch.app.signIn()}
+      />
     </View>
   </View>
 );
