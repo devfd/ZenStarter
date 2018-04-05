@@ -1,1 +1,7 @@
-"NSLocationWhenInUseUsageDescription" = "Pour un meilleur service, merci d'activer votre position";
+"NSLocationWhenInUseUsageDescription" = "Pas utilisé";
+"NSLocationWhenInUseUsageDescription" = "Pas utilisé";
+"NSCalendarsUsageDescription" = "Pas utilisé";
+"NSBluetoothPeripheralUsageDescription" = "Pas utilisé";
+"NSAppleMusicUsageDescription" = "Pas utilisé";
+"NSMotionUsageDescription" = "Pas utilisé";
+"NSSpeechRecognitionUsageDescription" = "Pas utilisé";

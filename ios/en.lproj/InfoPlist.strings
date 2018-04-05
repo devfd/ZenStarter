@@ -1,1 +1,7 @@
-"NSLocationWhenInUseUsageDescription" = "For best experience we need your location";
+"NSLocationWhenInUseUsageDescription" = "Not used";
+"NSLocationWhenInUseUsageDescription" = "Not used";
+"NSCalendarsUsageDescription" = "Not used";
+"NSBluetoothPeripheralUsageDescription" = "Not used";
+"NSAppleMusicUsageDescription" = "Not used";
+"NSMotionUsageDescription" = "Not used";
+"NSSpeechRecognitionUsageDescription" = "Not Used";
